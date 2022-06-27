@@ -72,8 +72,10 @@ protected:
 };
 
 MODULE_REGISTER_TMP(Wilson, TWilson<FIMPL>, MAction);
+MODULE_REGISTER_TMP(WilsonAdj, TWilson<WilsonAdjImplR>, MAction);
 #ifdef GRID_DEFAULT_PRECISION_DOUBLE
 MODULE_REGISTER_TMP(WilsonF, TWilson<FIMPLF>, MAction);
+MODULE_REGISTER_TMP(WilsonAdjF, TWilson<WilsonAdjImplF>, MAction);
 #endif
 
 /******************************************************************************
@@ -143,5 +145,8 @@ void TWilson<FImpl>::execute()
 END_MODULE_NAMESPACE
 
 END_HADRONS_NAMESPACE
+
+template class Grid::Hadrons::MAction::TWilson<Grid::WilsonAdjImplF>;
+template class Grid::Hadrons::MAction::TWilson<Grid::WilsonAdjImplD>;
 
 #endif // Hadrons_Wilson_hpp_

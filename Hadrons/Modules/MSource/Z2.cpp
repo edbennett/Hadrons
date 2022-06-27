@@ -31,4 +31,3 @@ using namespace MSource;
 
 template class Grid::Hadrons::MSource::TZ2<FIMPL>;
 template class Grid::Hadrons::MSource::TZ2<ScalarImplCR>;
-

@@ -30,4 +30,3 @@ using namespace Hadrons;
 using namespace MContraction;
 
 template class Grid::Hadrons::MContraction::TMeson<FIMPL,FIMPL>;
-

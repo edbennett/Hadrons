@@ -78,8 +78,10 @@ private:
 typedef Lattice<iScalar<iMatrix<iScalar<vComplex>,Ns>>> SpinMatField;
 
 MODULE_REGISTER_TMP(Point,       TPoint<FIMPL::PropagatorField> , MSink);
+MODULE_REGISTER_TMP(PointAdj,    TPoint<WilsonAdjImplR::PropagatorField> , MSink);
 MODULE_REGISTER_TMP(ScalarPoint, TPoint<ScalarImplCR::Field>    , MSink);
 MODULE_REGISTER_TMP(SMatPoint,   TPoint<SpinMatField>           , MSink);
+
 
 /******************************************************************************
  *                          TPoint implementation                             *
@@ -158,5 +160,7 @@ void TPoint<Field>::execute(void)
 END_MODULE_NAMESPACE
 
 END_HADRONS_NAMESPACE
+
+template class Grid::Hadrons::MSink::TPoint<Grid::WilsonAdjImplR::PropagatorField>;
 
 #endif // Hadrons_MSink_Point_hpp_

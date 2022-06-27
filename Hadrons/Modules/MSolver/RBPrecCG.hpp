@@ -77,6 +77,8 @@ protected:
 MODULE_REGISTER_TMP(RBPrecCG, ARG(TRBPrecCG<FIMPL>), MSolver);
 MODULE_REGISTER_TMP(ZRBPrecCG, ARG(TRBPrecCG<ZFIMPL>), MSolver);
 
+MODULE_REGISTER_TMP(RBPrecCGAdj, ARG(TRBPrecCG<WilsonAdjImplR>), MSolver);
+
 /******************************************************************************
  *                      TRBPrecCG template implementation                     *
  ******************************************************************************/
@@ -158,5 +160,7 @@ void TRBPrecCG<FImpl, nBasis>::execute(void)
 END_MODULE_NAMESPACE
 
 END_HADRONS_NAMESPACE
+
+template class Grid::Hadrons::MSolver::TRBPrecCG<Grid::WilsonAdjImplR>;
 
 #endif // Hadrons_MSolver_RBPrecCG_hpp_

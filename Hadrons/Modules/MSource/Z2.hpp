@@ -85,6 +85,7 @@ private:
 
 MODULE_REGISTER_TMP(Z2,       TZ2<FIMPL>,        MSource);
 MODULE_REGISTER_TMP(ScalarZ2, TZ2<ScalarImplCR>, MSource);
+MODULE_REGISTER_TMP(Z2Adj,    TZ2<WilsonAdjImplR>, MSource);
 
 /******************************************************************************
  *                       TZ2 template implementation                          *
@@ -157,5 +158,7 @@ void TZ2<FImpl>::execute(void)
 END_MODULE_NAMESPACE
 
 END_HADRONS_NAMESPACE
+
+template class Grid::Hadrons::MSource::TZ2<Grid::WilsonAdjImplR>;
 
 #endif // Hadrons_MSource_Z2_hpp_

@@ -81,6 +81,7 @@ private:
 
 MODULE_REGISTER_TMP(GaugeProp, TGaugeProp<FIMPL>, MFermion);
 MODULE_REGISTER_TMP(ZGaugeProp, TGaugeProp<ZFIMPL>, MFermion);
+MODULE_REGISTER_TMP(GaugePropAdj, TGaugeProp<WilsonAdjImplR>, MFermion);
 
 /******************************************************************************
  *                      TGaugeProp implementation                             *
@@ -248,5 +249,7 @@ void TGaugeProp<FImpl>::execute(void)
 END_MODULE_NAMESPACE
 
 END_HADRONS_NAMESPACE
+
+template class Grid::Hadrons::MFermion::TGaugeProp<Grid::WilsonAdjImplR>;
 
 #endif // Hadrons_MFermion_GaugeProp_hpp_

@@ -105,6 +105,7 @@ protected:
 };
 
 MODULE_REGISTER_TMP(Meson, ARG(TMeson<FIMPL, FIMPL>), MContraction);
+MODULE_REGISTER_TMP(MesonAdj, ARG(TMeson<WilsonAdjImplR, WilsonAdjImplR>), MContraction);
 
 /******************************************************************************
  *                           TMeson implementation                            *
@@ -188,14 +189,16 @@ void TMeson<FImpl1, FImpl2>::execute(void)
     Gamma                  g5(Gamma::Algebra::Gamma5);
     std::vector<GammaPair> gammaList;
     int                    nt = env().getDim(Tp);
-    
+
     parseGammaString(gammaList);
     result.resize(gammaList.size());
+ 
     for (unsigned int i = 0; i < result.size(); ++i)
     {
         result[i].gamma_snk = gammaList[i].first;
         result[i].gamma_src = gammaList[i].second;
         result[i].corr.resize(nt);
+
     }
     if (envHasType(SlicedPropagator1, par().q1) and
         envHasType(SlicedPropagator2, par().q2))
@@ -219,7 +222,6 @@ void TMeson<FImpl1, FImpl2>::execute(void)
     {
         auto &q1 = envGet(PropagatorField1, par().q1);
         auto &q2 = envGet(PropagatorField2, par().q2);
-        
         envGetTmp(LatticeComplex, c);
         LOG(Message) << "(using sink '" << par().sink << "')" << std::endl;
         for (unsigned int i = 0; i < result.size(); ++i)
@@ -227,7 +229,7 @@ void TMeson<FImpl1, FImpl2>::execute(void)
             Gamma       gSnk(gammaList[i].first);
             Gamma       gSrc(gammaList[i].second);
             std::string ns;
-                
+
             ns = vm().getModuleNamespace(env().getObjectModule(par().sink));
             if (ns == "MSource")
             {
@@ -239,7 +241,7 @@ void TMeson<FImpl1, FImpl2>::execute(void)
             else if (ns == "MSink")
             {
                 SinkFnScalar &sink = envGet(SinkFnScalar, par().sink);
-                
+
                 c   = trace(mesonConnected(q1, q2, gSnk, gSrc));
                 buf = sink(c);
             }
@@ -255,5 +257,7 @@ void TMeson<FImpl1, FImpl2>::execute(void)
 END_MODULE_NAMESPACE
 
 END_HADRONS_NAMESPACE
+
+template class Grid::Hadrons::MContraction::TMeson<Grid::WilsonAdjImplR,Grid::WilsonAdjImplR>;
 
 #endif // Hadrons_MContraction_Meson_hpp_
