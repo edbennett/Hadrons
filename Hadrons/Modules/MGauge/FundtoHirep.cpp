@@ -28,7 +28,7 @@
 
 // Template instantiation
 //Hadrons::MGauge::TFundtoHirep<AdjointRepresentation> _test("testme");
-template class TFundtoHirep<AdjointRepresentation>;
+//template class TFundtoHirep<AdjointRepresentation>;
 //template TFundtoHirep<AdjointRepresentation>::TFundtoHirep(const std::string);
 //template std::vector<std::string> TFundtoHirep<AdjointRepresentation>::getInput(void);
 //template std::vector<std::string> TFundtoHirep<AdjointRepresentation>::getOutput(void);
@@ -39,4 +39,4 @@ using namespace Grid;
 using namespace Hadrons;
 using namespace MGauge;
 
-template class Grid::Hadrons::MGauge::TFundtoHirep<AdjoinRepresentation>;
+template class Grid::Hadrons::MGauge::TFundtoHirep<Grid::AdjointRepresentation>;

@@ -63,7 +63,7 @@ public:
     void execute(void);
 };
 
-MODULE_REGISTER_TMP(FundtoAdjoint, TFundtoHirep<AdjointRepresentation>, MGauge);
+MODULE_REGISTER_TMP(FundtoAdjoint, TFundtoHirep<Grid::AdjointRepresentation>, MGauge);
 //MODULE_REGISTER_TMP(FundtoTwoIndexSym, TFundtoHirep<TwoIndexSymmetricRepresentation>, MGauge);
 //MODULE_REGISTER_TMP(FundtoTwoIndexAsym, TFundtoHirep<TwoIndexAntiSymmetricRepresentation>, MGauge);
 
@@ -116,7 +116,7 @@ void TFundtoHirep<Rep>::execute(void)
     URep = TargetRepresentation.U;
 }
 
-template class TFundtoHirep<AdjointRepresentation>;
+//template class TFundtoHirep<Grid::AdjointRepresentation>;
 
 
 END_MODULE_NAMESPACE

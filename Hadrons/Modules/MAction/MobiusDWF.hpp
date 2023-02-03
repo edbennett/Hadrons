@@ -71,8 +71,10 @@ public:
 };
 
 MODULE_REGISTER_TMP(MobiusDWF, TMobiusDWF<FIMPL>, MAction);
+MODULE_REGISTER_TMP(MobiusDWFAdj, TMobiusDWF<WilsonAdjImplR>, MAction);
 #ifdef GRID_DEFAULT_PRECISION_DOUBLE
 MODULE_REGISTER_TMP(MobiusDWFF, TMobiusDWF<FIMPLF>, MAction);
+MODULE_REGISTER_TMP(MobiusDWFAdjF, TMobiusDWF<WilsonAdjImplF>, MAction);
 #endif
 
 /******************************************************************************
