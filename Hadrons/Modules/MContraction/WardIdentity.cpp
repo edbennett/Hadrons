@@ -34,3 +34,4 @@ using namespace MContraction;
 
 template class Grid::Hadrons::MContraction::TWardIdentity<FIMPL>;
 template class Grid::Hadrons::MContraction::TWardIdentity<ZFIMPL>;
+template class Grid::Hadrons::MContraction::TWardIdentity<WilsonAdjImplR>;

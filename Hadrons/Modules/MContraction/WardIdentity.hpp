@@ -114,6 +114,7 @@ private:
 
 MODULE_REGISTER_TMP(WardIdentity, TWardIdentity<FIMPL>, MContraction);
 MODULE_REGISTER_TMP(ZWardIdentity, TWardIdentity<ZFIMPL>, MContraction);
+MODULE_REGISTER_TMP(WardIdentityAdj, TWardIdentity<WilsonAdjImplR>, MContraction);
 
 /******************************************************************************
  *                     TWardIdentity implementation                           *
